@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://school" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://school" xmlns:intf="http://school" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://school" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="schoolname">
+    <complexType/>
+   </element>
+   <element name="schoolnameResponse">
+    <complexType>
+     <sequence>
+      <element name="schoolnameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="szorzat">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="szorzatResponse">
+    <complexType>
+     <sequence>
+      <element name="szorzatReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="szorzatResponse">
+
+      <wsdl:part element="impl:szorzatResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="schoolnameRequest">
+
+      <wsdl:part element="impl:schoolname" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="szorzatRequest">
+
+      <wsdl:part element="impl:szorzat" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="schoolnameResponse">
+
+      <wsdl:part element="impl:schoolnameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="School">
+
+      <wsdl:operation name="schoolname">
+
+         <wsdl:input message="impl:schoolnameRequest" name="schoolnameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:schoolnameResponse" name="schoolnameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="szorzat">
+
+         <wsdl:input message="impl:szorzatRequest" name="szorzatRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:szorzatResponse" name="szorzatResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SchoolSoapBinding" type="impl:School">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="schoolname">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="schoolnameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="schoolnameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="szorzat">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="szorzatRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="szorzatResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SchoolService">
+
+      <wsdl:port binding="impl:SchoolSoapBinding" name="School">
+
+         <wsdlsoap:address location="http://localhost:8080/Schools/services/School"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
